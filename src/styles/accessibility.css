@@ -1,0 +1,115 @@
+/* Global accessibility styles */
+:root {
+  --text-color: #333333;
+  --background-color: #ffffff;
+  --primary-color: #1976d2;
+  --secondary-color: #dc004e;
+  --border-color: #e0e0e0;
+}
+
+/* High contrast mode */
+.high-contrast {
+  --text-color: #000000;
+  --background-color: #ffffff;
+  --primary-color: #0000ff;
+  --secondary-color: #ff0000;
+  --border-color: #000000;
+}
+
+.high-contrast body {
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+.high-contrast a {
+  color: var(--primary-color);
+}
+
+.high-contrast button {
+  border: 2px solid var(--border-color);
+}
+
+/* Reading mode */
+.reading-mode {
+  --font-family: Arial, sans-serif;
+  --line-height: 1.8;
+  --letter-spacing: 0.05em;
+  --word-spacing: 0.1em;
+}
+
+.reading-mode body {
+  font-family: var(--font-family);
+  line-height: var(--line-height);
+  letter-spacing: var(--letter-spacing);
+  word-spacing: var(--word-spacing);
+}
+
+/* Font size adjustments */
+html {
+  font-size: 100%;
+}
+
+/* Focus styles */
+:focus {
+  outline: 3px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Skip to main content link */
+.skip-to-main {
+  position: absolute;
+  left: -9999px;
+  z-index: 999;
+  padding: 1em;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.skip-to-main:focus {
+  left: 0;
+  top: 0;
+}
+
+.high-contrast * {
+  background-color: var(--background-color) !important;
+  color: var(--text-color) !important;
+  border-color: var(--border-color) !important;
+}
+
+.high-contrast .MuiPaper-root {
+  background-color: var(--background-color) !important;
+  border: 2px solid var(--border-color) !important;
+}
+
+.high-contrast .MuiButton-root {
+  background-color: var(--primary-color) !important;
+  color: var(--secondary-color) !important;
+  border: 2px solid var(--border-color) !important;
+}
+
+.high-contrast .MuiButton-outlined {
+  background-color: transparent !important;
+  color: var(--primary-color) !important;
+}
+
+.high-contrast .MuiCard-root {
+  border: 2px solid var(--border-color) !important;
+}
+
+.high-contrast .MuiTextField-root * {
+  border-color: var(--border-color) !important;
+}
+
+.high-contrast .MuiSlider-root .MuiSlider-thumb {
+  background-color: var(--primary-color) !important;
+  border: 2px solid var(--border-color) !important;
+}
+
+.high-contrast .MuiSlider-root .MuiSlider-track {
+  background-color: var(--border-color) !important;
+}
+
+.high-contrast .MuiSlider-root .MuiSlider-rail {
+  background-color: var(--border-color) !important;
+} 
