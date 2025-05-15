@@ -1,0 +1,732 @@
+html, body {
+  direction: rtl;
+  text-align: right;
+  width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.MuiTypography-root,
+.MuiButton-root,
+.MuiCard-root,
+.MuiDialog-paper,
+.MuiContainer-root,
+.MuiListItem-root,
+.MuiTableCell-root,
+.MuiInputBase-root,
+.MuiSelect-root,
+.MuiMenuItem-root,
+.MuiFormControl-root,
+.MuiInputLabel-root {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+input,
+textarea,
+select {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+/* Fix for lists */
+ul, ol {
+  padding-right: 20px !important;
+  padding-left: 0 !important;
+}
+
+/* Fix for margins and paddings */
+.ml-auto {
+  margin-right: auto !important;
+  margin-left: 0 !important;
+}
+
+.mr-auto {
+  margin-left: auto !important;
+  margin-right: 0 !important;
+}
+
+/* Fix for flex containers */
+.flex-row {
+  flex-direction: row-reverse !important;
+}
+
+/* Fix for grid items */
+.MuiGrid-item {
+  direction: rtl !important;
+}
+
+/* Fix for dialog actions */
+.MuiDialogActions-root {
+  flex-direction: row-reverse !important;
+}
+
+/* Fix for card content */
+.MuiCardContent-root {
+  text-align: right !important;
+}
+
+/* Fix for form labels */
+.MuiFormLabel-root {
+  right: 0 !important;
+  left: auto !important;
+}
+
+/* Fix for input adornments */
+.MuiInputAdornment-root {
+  margin-left: 8px !important;
+  margin-right: 0 !important;
+}
+
+/* Fix for containers */
+.MuiContainer-root {
+  padding-right: 24px !important;
+  padding-left: 24px !important;
+  max-width: 100% !important;
+}
+
+/* Fix for app bar */
+.MuiAppBar-root {
+  background: white;
+  color: #2C3E50;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding-right: 16px !important;
+  padding-left: 16px !important;
+}
+
+/* Fix for paper elements */
+.MuiPaper-root {
+  background: white;
+  border-radius: 12px;
+  margin: 8px !important;
+}
+
+/* Fix for grid container */
+.MuiGrid-container {
+  margin: 0 !important;
+  width: 100% !important;
+}
+
+/* Fix for main content */
+main {
+  width: 100%;
+  overflow-x: hidden;
+  min-height: calc(100vh - 64px);
+  padding: 24px 0;
+}
+
+/* Fix for buttons */
+.MuiButton-root {
+  text-transform: none;
+  font-weight: 500;
+  border-radius: 8px;
+  padding: 8px 16px;
+  margin: 4px !important;
+}
+
+/* Fix for cards */
+.MuiCard-root {
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: all 0.2s ease-in-out;
+  margin: 8px !important;
+  width: 100% !important;
+}
+
+.MuiCard-root:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+/* Fix for dialogs */
+.MuiDialog-paper {
+  border-radius: 12px;
+  padding: 16px;
+  margin: 16px !important;
+  max-width: 100% !important;
+}
+
+/* Fix for typography */
+.MuiTypography-root {
+  color: #2C3E50;
+}
+
+.MuiTypography-body2 {
+  color: #7F8C8D;
+}
+
+/* Fix for specific components */
+.product-card {
+  margin: 8px !important;
+  width: calc(100% - 16px) !important;
+}
+
+.cart-item {
+  margin: 8px !important;
+  width: calc(100% - 16px) !important;
+}
+
+.product-popup {
+  margin: 16px !important;
+  max-width: calc(100% - 32px) !important;
+}
+
+/* Fix for form elements */
+.MuiFormControl-root {
+  width: 100% !important;
+}
+
+.MuiInputBase-root {
+  width: 100% !important;
+}
+
+.MuiSelect-select {
+  text-align: right !important;
+}
+
+/* Fix for lists and menus */
+.MuiList-root {
+  padding: 8px !important;
+}
+
+.MuiMenuItem-root {
+  text-align: right !important;
+}
+
+/* Fix for buttons and actions */
+.MuiIconButton-root {
+  margin: 4px !important;
+}
+
+/* Fix for dialog content */
+.MuiDialogContent-root {
+  padding: 16px !important;
+}
+
+/* Fix for card content */
+.MuiCardContent-root {
+  padding: 16px !important;
+}
+
+/* Fix for grid spacing */
+.MuiGrid-spacing-xs-2 > .MuiGrid-item {
+  padding: 8px !important;
+}
+
+.MuiGrid-spacing-xs-3 > .MuiGrid-item {
+  padding: 12px !important;
+}
+
+.MuiGrid-spacing-xs-4 > .MuiGrid-item {
+  padding: 16px !important;
+}
+
+/* Fix for container max-width */
+@media (min-width: 600px) {
+  .MuiContainer-root {
+    max-width: 100% !important;
+  }
+}
+
+@media (min-width: 960px) {
+  .MuiContainer-root {
+    max-width: 100% !important;
+  }
+}
+
+@media (min-width: 1280px) {
+  .MuiContainer-root {
+    max-width: 100% !important;
+  }
+}
+
+/* Fix for flex containers */
+.flex-container {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+}
+
+/* Fix for grid items */
+.grid-item {
+  flex-grow: 1 !important;
+  margin: 8px !important;
+  min-width: 0 !important;
+}
+
+/* Fix for dialog actions */
+.MuiDialogActions-root {
+  padding: 8px 16px !important;
+  justify-content: flex-start !important;
+}
+
+/* Fix for form labels */
+.MuiInputLabel-root {
+  right: 0 !important;
+  left: auto !important;
+  transform-origin: right !important;
+}
+
+/* Fix for input adornments */
+.MuiInputAdornment-root {
+  margin-left: 8px !important;
+  margin-right: 0 !important;
+}
+
+/* Fix for select icon */
+.MuiSelect-icon {
+  right: auto !important;
+  left: 7px !important;
+}
+
+/* Fix for checkbox and radio */
+.MuiCheckbox-root,
+.MuiRadio-root {
+  margin-right: 0 !important;
+  margin-left: 8px !important;
+}
+
+/* Fix for table cells */
+.MuiTableCell-root {
+  text-align: right !important;
+}
+
+/* Fix for list items */
+.MuiListItem-root {
+  text-align: right !important;
+}
+
+/* Fix for tabs */
+.MuiTabs-root {
+  direction: rtl !important;
+}
+
+.MuiTab-root {
+  text-align: right !important;
+}
+
+/* Fix for drawer */
+.MuiDrawer-paper {
+  direction: rtl !important;
+}
+
+/* Fix for menu */
+.MuiMenu-paper {
+  direction: rtl !important;
+}
+
+/* Fix for tooltip */
+.MuiTooltip-tooltip {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+/* Fix for snackbar */
+.MuiSnackbar-root {
+  direction: rtl !important;
+}
+
+/* Fix for alert */
+.MuiAlert-root {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+/* Fix for card media */
+.MuiCardMedia-root {
+  width: 100% !important;
+  height: auto !important;
+}
+
+/* Fix for card actions */
+.MuiCardActions-root {
+  padding: 8px !important;
+  justify-content: flex-start !important;
+}
+
+/* Fix for divider */
+.MuiDivider-root {
+  margin: 8px 0 !important;
+}
+
+/* Fix for avatar */
+.MuiAvatar-root {
+  margin-right: 0 !important;
+  margin-left: 8px !important;
+}
+
+/* Fix for badge */
+.MuiBadge-badge {
+  right: auto !important;
+  left: 0 !important;
+}
+
+/* Fix for chip */
+.MuiChip-root {
+  margin: 4px !important;
+}
+
+/* Fix for pagination */
+.MuiPagination-root {
+  direction: rtl !important;
+}
+
+/* Fix for rating */
+.MuiRating-root {
+  direction: rtl !important;
+}
+
+/* Fix for slider */
+.MuiSlider-root {
+  direction: rtl !important;
+}
+
+/* Fix for switch */
+.MuiSwitch-root {
+  direction: rtl !important;
+}
+
+/* Fix for text field */
+.MuiTextField-root {
+  width: 100% !important;
+}
+
+/* Fix for form group */
+.MuiFormGroup-root {
+  margin: 8px 0 !important;
+}
+
+/* Fix for form helper text */
+.MuiFormHelperText-root {
+  text-align: right !important;
+}
+
+/* Fix for input */
+.MuiInput-root {
+  width: 100% !important;
+}
+
+/* Fix for outlined input */
+.MuiOutlinedInput-root {
+  width: 100% !important;
+}
+
+/* Fix for filled input */
+.MuiFilledInput-root {
+  width: 100% !important;
+}
+
+/* Fix for input label */
+.MuiInputLabel-shrink {
+  transform-origin: right !important;
+}
+
+/* Fix for input label focused */
+.MuiInputLabel-focused {
+  transform-origin: right !important;
+}
+
+/* Fix for input label error */
+.MuiInputLabel-error {
+  transform-origin: right !important;
+}
+
+/* Fix for input label disabled */
+.MuiInputLabel-disabled {
+  transform-origin: right !important;
+}
+
+/* Fix for input label required */
+.MuiInputLabel-required {
+  transform-origin: right !important;
+}
+
+/* Fix for input label asterisk */
+.MuiInputLabel-asterisk {
+  margin-right: 4px !important;
+  margin-left: 0 !important;
+}
+
+/* Fix for input label form control */
+.MuiInputLabel-formControl {
+  transform-origin: right !important;
+}
+
+/* Fix for input label outlined */
+.MuiInputLabel-outlined {
+  transform-origin: right !important;
+}
+
+/* Fix for input label filled */
+.MuiInputLabel-filled {
+  transform-origin: right !important;
+}
+
+/* Fix for input label standard */
+.MuiInputLabel-standard {
+  transform-origin: right !important;
+}
+
+/* Fix for input label shrink outlined */
+.MuiInputLabel-shrink.MuiInputLabel-outlined {
+  transform-origin: right !important;
+}
+
+/* Fix for input label shrink filled */
+.MuiInputLabel-shrink.MuiInputLabel-filled {
+  transform-origin: right !important;
+}
+
+/* Fix for input label shrink standard */
+.MuiInputLabel-shrink.MuiInputLabel-standard {
+  transform-origin: right !important;
+}
+
+/* Fix for input label focused outlined */
+.MuiInputLabel-focused.MuiInputLabel-outlined {
+  transform-origin: right !important;
+}
+
+/* Fix for input label focused filled */
+.MuiInputLabel-focused.MuiInputLabel-filled {
+  transform-origin: right !important;
+}
+
+/* Fix for input label focused standard */
+.MuiInputLabel-focused.MuiInputLabel-standard {
+  transform-origin: right !important;
+}
+
+/* Fix for input label error outlined */
+.MuiInputLabel-error.MuiInputLabel-outlined {
+  transform-origin: right !important;
+}
+
+/* Fix for input label error filled */
+.MuiInputLabel-error.MuiInputLabel-filled {
+  transform-origin: right !important;
+}
+
+/* Fix for input label error standard */
+.MuiInputLabel-error.MuiInputLabel-standard {
+  transform-origin: right !important;
+}
+
+/* Fix for input label disabled outlined */
+.MuiInputLabel-disabled.MuiInputLabel-outlined {
+  transform-origin: right !important;
+}
+
+/* Fix for input label disabled filled */
+.MuiInputLabel-disabled.MuiInputLabel-filled {
+  transform-origin: right !important;
+}
+
+/* Fix for input label disabled standard */
+.MuiInputLabel-disabled.MuiInputLabel-standard {
+  transform-origin: right !important;
+}
+
+/* Fix for input label required outlined */
+.MuiInputLabel-required.MuiInputLabel-outlined {
+  transform-origin: right !important;
+}
+
+/* Fix for input label required filled */
+.MuiInputLabel-required.MuiInputLabel-filled {
+  transform-origin: right !important;
+}
+
+/* Fix for input label required standard */
+.MuiInputLabel-required.MuiInputLabel-standard {
+  transform-origin: right !important;
+}
+
+/* Fix for input label asterisk outlined */
+.MuiInputLabel-asterisk.MuiInputLabel-outlined {
+  margin-right: 4px !important;
+  margin-left: 0 !important;
+}
+
+/* Fix for input label asterisk filled */
+.MuiInputLabel-asterisk.MuiInputLabel-filled {
+  margin-right: 4px !important;
+  margin-left: 0 !important;
+}
+
+/* Fix for input label asterisk standard */
+.MuiInputLabel-asterisk.MuiInputLabel-standard {
+  margin-right: 4px !important;
+  margin-left: 0 !important;
+}
+
+/* Fix for input label form control outlined */
+.MuiInputLabel-formControl.MuiInputLabel-outlined {
+  transform-origin: right !important;
+}
+
+/* Fix for input label form control filled */
+.MuiInputLabel-formControl.MuiInputLabel-filled {
+  transform-origin: right !important;
+}
+
+/* Fix for input label form control standard */
+.MuiInputLabel-formControl.MuiInputLabel-standard {
+  transform-origin: right !important;
+}
+
+/* Fix for input label shrink form control outlined */
+.MuiInputLabel-shrink.MuiInputLabel-formControl.MuiInputLabel-outlined {
+  transform-origin: right !important;
+}
+
+/* Fix for input label shrink form control filled */
+.MuiInputLabel-shrink.MuiInputLabel-formControl.MuiInputLabel-filled {
+  transform-origin: right !important;
+}
+
+/* Fix for input label shrink form control standard */
+.MuiInputLabel-shrink.MuiInputLabel-formControl.MuiInputLabel-standard {
+  transform-origin: right !important;
+}
+
+/* Fix for input label focused form control outlined */
+.MuiInputLabel-focused.MuiInputLabel-formControl.MuiInputLabel-outlined {
+  transform-origin: right !important;
+}
+
+/* Fix for input label focused form control filled */
+.MuiInputLabel-focused.MuiInputLabel-formControl.MuiInputLabel-filled {
+  transform-origin: right !important;
+}
+
+/* Fix for input label focused form control standard */
+.MuiInputLabel-focused.MuiInputLabel-formControl.MuiInputLabel-standard {
+  transform-origin: right !important;
+}
+
+/* Fix for input label error form control outlined */
+.MuiInputLabel-error.MuiInputLabel-formControl.MuiInputLabel-outlined {
+  transform-origin: right !important;
+}
+
+/* Fix for input label error form control filled */
+.MuiInputLabel-error.MuiInputLabel-formControl.MuiInputLabel-filled {
+  transform-origin: right !important;
+}
+
+/* Fix for input label error form control standard */
+.MuiInputLabel-error.MuiInputLabel-formControl.MuiInputLabel-standard {
+  transform-origin: right !important;
+}
+
+/* Fix for input label disabled form control outlined */
+.MuiInputLabel-disabled.MuiInputLabel-formControl.MuiInputLabel-outlined {
+  transform-origin: right !important;
+}
+
+/* Fix for input label disabled form control filled */
+.MuiInputLabel-disabled.MuiInputLabel-formControl.MuiInputLabel-filled {
+  transform-origin: right !important;
+}
+
+/* Fix for input label disabled form control standard */
+.MuiInputLabel-disabled.MuiInputLabel-formControl.MuiInputLabel-standard {
+  transform-origin: right !important;
+}
+
+/* Fix for input label required form control outlined */
+.MuiInputLabel-required.MuiInputLabel-formControl.MuiInputLabel-outlined {
+  transform-origin: right !important;
+}
+
+/* Fix for input label required form control filled */
+.MuiInputLabel-required.MuiInputLabel-formControl.MuiInputLabel-filled {
+  transform-origin: right !important;
+}
+
+/* Fix for input label required form control standard */
+.MuiInputLabel-required.MuiInputLabel-formControl.MuiInputLabel-standard {
+  transform-origin: right !important;
+}
+
+/* Fix for input label asterisk form control outlined */
+.MuiInputLabel-asterisk.MuiInputLabel-formControl.MuiInputLabel-outlined {
+  margin-right: 4px !important;
+  margin-left: 0 !important;
+}
+
+/* Fix for input label asterisk form control filled */
+.MuiInputLabel-asterisk.MuiInputLabel-formControl.MuiInputLabel-filled {
+  margin-right: 4px !important;
+  margin-left: 0 !important;
+}
+
+/* Fix for input label asterisk form control standard */
+.MuiInputLabel-asterisk.MuiInputLabel-formControl.MuiInputLabel-standard {
+  margin-right: 4px !important;
+  margin-left: 0 !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .MuiContainer-root {
+    padding: 16px;
+  }
+
+  .MuiTypography-h1 {
+    font-size: 2rem;
+  }
+
+  .MuiTypography-h2 {
+    font-size: 1.75rem;
+  }
+
+  .MuiTypography-h3 {
+    font-size: 1.5rem;
+  }
+
+  .MuiTypography-h4 {
+    font-size: 1.25rem;
+  }
+
+  .MuiTypography-h5 {
+    font-size: 1.1rem;
+  }
+
+  .MuiTypography-h6 {
+    font-size: 1rem;
+  }
+
+  .MuiButton-root {
+    padding: 8px 16px;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .MuiButton-contained {
+    background: #000000;
+    color: #FFFFFF;
+  }
+
+  .MuiTypography-root {
+    color: #000000;
+  }
+
+  .MuiCard-root {
+    border: 2px solid #000000;
+  }
+} 
