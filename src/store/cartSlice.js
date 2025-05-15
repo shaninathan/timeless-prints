@@ -2,71 +2,60 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   items: [],
-  total: 0,
+  favorites: [],
+  total: 0
 };
 
-export const cartSlice = createSlice({
+const calculateTotal = (items) => {
+  return items.reduce((total, item) => {
+    const itemTotal = item.price * item.quantity;
+    return total + Number(itemTotal.toFixed(2));
+  }, 0);
+};
+
+const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    addItem: (state, action) => {
-      const existingItem = state.items.find(item => 
-        item.id === action.payload.id && 
-        item.size === action.payload.size
-      );
-
-      if (existingItem) {
-        existingItem.quantity += action.payload.quantity;
-      } else {
-        state.items.push(action.payload);
-      }
-
-      state.total = state.items.reduce(
-        (total, item) => total + (item.price * item.quantity),
-        0
-      );
-    },
-    removeItem: (state, action) => {
-      state.items = state.items.filter(item => 
-        !(item.id === action.payload.id && item.size === action.payload.size)
-      );
+    addToCart: (state, action) => {
+      const newItem = {
+        ...action.payload,
+        cartItemId: Date.now().toString()
+      };
       
-      state.total = state.items.reduce(
-        (total, item) => total + (item.price * item.quantity),
-        0
-      );
+      // מוסיף את המוצר כפריט חדש בסל
+      state.items.push(newItem);
+      state.total = calculateTotal(state.items);
     },
-    updateQuantity: (state, action) => {
-      const item = state.items.find(item => 
-        item.id === action.payload.id && 
-        item.size === action.payload.size
-      );
-
+    removeFromCart: (state, action) => {
+      state.items = state.items.filter(item => item.cartItemId !== action.payload);
+      state.total = calculateTotal(state.items);
+    },
+    updateCartItemQuantity: (state, action) => {
+      const { cartItemId, quantity } = action.payload;
+      const item = state.items.find(item => item.cartItemId === cartItemId);
       if (item) {
-        item.quantity = action.payload.quantity;
-        state.total = state.items.reduce(
-          (total, item) => total + (item.price * item.quantity),
-          0
-        );
+        item.quantity = quantity;
+        state.total = calculateTotal(state.items);
       }
     },
     updateCartItemImage: (state, action) => {
-      const { id, image } = action.payload;
-      const item = state.items.find(item => item.id === id);
+      const { cartItemId, image } = action.payload;
+      const item = state.items.find(item => item.cartItemId === cartItemId);
       if (item) {
         item.customImage = image;
       }
     },
     updateCartItemNotes: (state, action) => {
-      const { id, notes } = action.payload;
-      const item = state.items.find(item => item.id === id);
+      const { cartItemId, notes } = action.payload;
+      const item = state.items.find(item => item.cartItemId === cartItemId);
       if (item) {
-        item.customNotes = notes;
+        item.notes = notes;
       }
     },
     updateCartItemSize: (state, action) => {
-      const { id, size } = action.payload;
-      const item = state.items.find(item => item.id === id);
+      const { cartItemId, size } = action.payload;
+      const item = state.items.find(item => item.cartItemId === cartItemId);
       if (item) {
         item.size = size;
       }
@@ -75,9 +64,39 @@ export const cartSlice = createSlice({
       state.items = [];
       state.total = 0;
     },
-  },
+    addToFavorites: (state, action) => {
+      const product = action.payload;
+      if (!state.favorites.find(item => item.id === product.id)) {
+        state.favorites.push(product);
+      }
+    },
+    removeFromFavorites: (state, action) => {
+      const productId = action.payload;
+      state.favorites = state.favorites.filter(item => item.id !== productId);
+    },
+    toggleFavorite: (state, action) => {
+      const product = action.payload;
+      const index = state.favorites.findIndex(item => item.id === product.id);
+      if (index === -1) {
+        state.favorites.push(product);
+      } else {
+        state.favorites.splice(index, 1);
+      }
+    },
+  }
 });
 
-export const { addItem, removeItem, updateQuantity, updateCartItemImage, updateCartItemNotes, updateCartItemSize, clearCart } = cartSlice.actions;
+export const { 
+  addToCart, 
+  removeFromCart, 
+  updateCartItemQuantity, 
+  updateCartItemImage, 
+  updateCartItemNotes,
+  updateCartItemSize,
+  clearCart,
+  addToFavorites,
+  removeFromFavorites,
+  toggleFavorite
+} = cartSlice.actions;
 
 export default cartSlice.reducer; 
