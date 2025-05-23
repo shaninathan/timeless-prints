@@ -3,7 +3,7 @@ import { Container, Typography, Box, Grid } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../../store/cartSlice';
 import { removeFromFavorites } from '../../store/favoritesSlice';
-import { ProductsGrid, SelectProductButton } from '../products/Products.styles';
+import { ProductGrid, SelectProductButton } from '../products/Products.styles';
 import Loader from '../../components/loader/Loader';
 import ErrorMessage from '../../components/errorMessage/ErrorMessage';
 import ProductCard from '../../components/productCard/ProductCard';
@@ -62,7 +62,7 @@ const Favorites = () => {
       <Typography variant="h4" component="h1" gutterBottom align="center">
         המוצרים המועדפים שלי
       </Typography>
-      <ProductsGrid container spacing={2}>
+      <ProductGrid container spacing={2}>
         {favorites.map((product) => (
           <Grid item xs={12} sm={6} md={4} lg={3} key={product.id}>
             <ProductCard
@@ -74,7 +74,7 @@ const Favorites = () => {
             />
           </Grid>
         ))}
-      </ProductsGrid>
+      </ProductGrid>
     </Container>
   );
 };

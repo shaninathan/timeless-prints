@@ -44,21 +44,23 @@ const Footer = () => {
 
   return (
     <FooterContainer>
-      <Container maxWidth="lg">
-        <Grid container spacing={4}>
+      <Box sx={{ 
+        maxWidth: '100%', 
+        px: { xs: 2, sm: 4, md: 6, lg: 8 },
+        mx: 'auto'
+      }}>
+        <Grid container spacing={3}>
           {/* אודות */}
           <Grid item xs={12} sm={6} md={3}>
             <Typography variant="h6" color="primary" gutterBottom>
               אודות
             </Typography>
-            <Typography variant="body2" color="text.secondary" paragraph>
+            <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
               Timeless prints - חנות הדפסות איכותית המציעה מגוון רחב של מוצרים מותאמים אישית.
             </Typography>
-            <Box sx={{ mt: 2 }}>
-              <StyledLink component={RouterLink} to="/about">
-                קרא עוד
-              </StyledLink>
-            </Box>
+            <StyledLink component={RouterLink} to="/about">
+              קרא עוד
+            </StyledLink>
           </Grid>
 
           {/* יתרונות */}
@@ -66,7 +68,7 @@ const Footer = () => {
             <Typography variant="h6" color="primary" gutterBottom>
               למה לבחור בנו?
             </Typography>
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
               {features.map((feature, index) => (
                 <FeatureBox key={index}>
                   {feature.icon}
@@ -88,22 +90,24 @@ const Footer = () => {
             <Typography variant="h6" color="primary" gutterBottom>
               צור קשר
             </Typography>
-            <ContactItem>
-              <PhoneIcon sx={{ mr: 1 }} />
-              <Typography variant="body2">03-1234567</Typography>
-            </ContactItem>
-            <ContactItem>
-              <WhatsAppIcon sx={{ mr: 1 }} />
-              <Typography variant="body2">050-1234567</Typography>
-            </ContactItem>
-            <ContactItem>
-              <EmailIcon sx={{ mr: 1 }} />
-              <Typography variant="body2">info@timelessprints.co.il</Typography>
-            </ContactItem>
-            <ContactItem>
-              <LocationOnIcon sx={{ mr: 1 }} />
-              <Typography variant="body2">רחוב הרצל 1, תל אביב</Typography>
-            </ContactItem>
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+              <ContactItem>
+                <PhoneIcon sx={{ mr: 1 }} />
+                <Typography variant="body2">03-1234567</Typography>
+              </ContactItem>
+              <ContactItem>
+                <WhatsAppIcon sx={{ mr: 1 }} />
+                <Typography variant="body2">050-1234567</Typography>
+              </ContactItem>
+              <ContactItem>
+                <EmailIcon sx={{ mr: 1 }} />
+                <Typography variant="body2">info@timelessprints.co.il</Typography>
+              </ContactItem>
+              <ContactItem>
+                <LocationOnIcon sx={{ mr: 1 }} />
+                <Typography variant="body2">רחוב הרצל 1, תל אביב</Typography>
+              </ContactItem>
+            </Box>
           </Grid>
 
           {/* הרשמה לעדכונים */}
@@ -113,7 +117,6 @@ const Footer = () => {
             </Typography>
             <NewsletterForm component="form" onSubmit={handleSubmit(onSubmit)}>
               <TextField
-                fullWidth
                 size="small"
                 placeholder="הכנס את כתובת המייל שלך"
                 {...register('email', {
@@ -125,12 +128,10 @@ const Footer = () => {
                 })}
                 error={!!errors.email}
                 helperText={errors.email?.message}
-                sx={{ mb: 1 }}
               />
               <Button
                 type="submit"
                 variant="contained"
-                fullWidth
                 sx={{
                   borderRadius: '20px',
                   textTransform: 'none',
@@ -143,7 +144,7 @@ const Footer = () => {
                 הרשמה
               </Button>
             </NewsletterForm>
-            <Box sx={{ mt: 3 }}>
+            <Box sx={{ mt: 2 }}>
               <Typography variant="subtitle2" color="primary" gutterBottom>
                 עקבו אחרינו
               </Typography>
@@ -162,7 +163,7 @@ const Footer = () => {
           </Grid>
         </Grid>
 
-        <Divider sx={{ my: 4 }} />
+        <Divider sx={{ my: 3 }} />
 
         {/* זכויות יוצרים */}
         <Box sx={{ textAlign: 'center' }}>
@@ -170,7 +171,7 @@ const Footer = () => {
             © {new Date().getFullYear()} כל הזכויות שמורות Timeless prints.
           </Typography>
         </Box>
-      </Container>
+      </Box>
 
       <Snackbar 
         open={showSuccess} 

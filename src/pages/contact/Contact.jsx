@@ -124,8 +124,7 @@ const Contact = () => {
           gutterBottom
           sx={{
             fontWeight: 700,
-            color: 'white',
-            textShadow: '2px 2px 4px rgba(0,0,0,0.2)',
+            color: 'text.primary',
             marginBottom: 4,
           }}
         >

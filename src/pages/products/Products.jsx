@@ -2,7 +2,6 @@ import React, { useState, useMemo, useEffect } from 'react';
 import { Container, Typography, Grid, Box, FormControl, InputLabel, Select, MenuItem, TextField, InputAdornment, IconButton, Chip, Stack, Dialog, DialogTitle, DialogContent, DialogActions, Button, Rating, Divider, Alert, Snackbar } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import ProductCard from '../../components/productCard/ProductCard';
-import ProductPopup from '../../components/productPopup/ProductPopup';
 import SearchIcon from '@mui/icons-material/Search';
 import SortIcon from '@mui/icons-material/Sort';
 import FilterListIcon from '@mui/icons-material/FilterList';
@@ -18,7 +17,7 @@ import {
   PageTitle,
   SearchField,
   FilterSelect,
-  ProductsGrid,
+  ProductGrid,
   SelectProductButton
 } from './Products.styles';
 import Loader from '../../components/loader/Loader';
@@ -33,8 +32,6 @@ const Products = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [selectedProduct, setSelectedProduct] = useState(null);
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [filters, setFilters] = useState({
     category: '',
     priceRange: '',
@@ -42,6 +39,7 @@ const Products = () => {
   });
   const dispatch = useDispatch();
   const favorites = useSelector((state) => state.favorites.items);
+  const [showSuccess, setShowSuccess] = useState(false);
 
   useEffect(() => {
     fetchProducts();
@@ -63,7 +61,6 @@ const Products = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
   const [sortOption, setSortOption] = useState('');
-  const [showSuccess, setShowSuccess] = useState(false);
 
   // Get unique categories
   const categories = useMemo(() => {
@@ -131,16 +128,6 @@ const Products = () => {
     setSearchTerm('');
     setSelectedCategory('');
     setSortOption('');
-  };
-
-  const handleOpenPopup = (product) => {
-    setSelectedProduct(product);
-    setIsPopupOpen(true);
-  };
-
-  const handleClosePopup = () => {
-    setIsPopupOpen(false);
-    setSelectedProduct(null);
   };
 
   const handleAddToCart = (product) => {
@@ -249,19 +236,19 @@ const Products = () => {
           </Grid>
         </FilterContainer>
 
-        <ProductsGrid container spacing={2}>
+        <ProductGrid container spacing={3}>
           {filteredProducts.map((product) => (
             <Grid item xs={12} sm={6} md={4} lg={3} key={product.id}>
-              <ProductCard
-                product={product}
-                onSelect={() => handleOpenPopup(product)}
-                onAddToCart={() => handleAddToCart(product)}
-                onToggleFavorite={() => handleToggleFavorite(product)}
-                isFavorite={favorites.some((item) => item.id === product.id)}
-              />
+              <Box sx={{ height: '100%', display: 'flex' }}>
+                <ProductCard
+                  product={product}
+                  onToggleFavorite={() => handleToggleFavorite(product)}
+                  isFavorite={favorites.some((item) => item.id === product.id)}
+                />
+              </Box>
             </Grid>
           ))}
-        </ProductsGrid>
+        </ProductGrid>
 
         {filteredProducts.length === 0 && (
           <Box sx={{ textAlign: 'center', mt: 4 }}>
@@ -270,12 +257,6 @@ const Products = () => {
             </Typography>
           </Box>
         )}
-
-        <ProductPopup
-          open={isPopupOpen}
-          onClose={handleClosePopup}
-          product={selectedProduct}
-        />
 
         <Snackbar
           open={showSuccess}

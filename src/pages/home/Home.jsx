@@ -22,6 +22,7 @@ import {
   Stack
 } from '@mui/material';
 import { motion, AnimatePresence } from 'framer-motion';
+import { styled } from '@mui/material/styles';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import BrushIcon from '@mui/icons-material/Brush';
@@ -39,6 +40,10 @@ import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import PhotoCameraIcon from '@mui/icons-material/PhotoCamera';
 import PaletteIcon from '@mui/icons-material/Palette';
 import PrintIcon from '@mui/icons-material/Print';
+import SecurityIcon from '@mui/icons-material/Security';
+import SupportIcon from '@mui/icons-material/Support';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+
 import {
   HeroSection,
   HeroContent,
@@ -47,21 +52,18 @@ import {
   HeroButton,
   FloatingCircle,
   TechCircle,
+  FeatureSection,
   FeatureCard,
   FeatureIcon,
   FeatureTitle,
   FeatureDescription,
-  FeatureSection,
-  StyledCard,
-  StyledCardMedia,
-  IconWrapper,
   CreativeGenerator,
   IdeaCard,
   IdeaImage,
   IdeaTitle,
   IdeaDescription,
-  IdeaButton,
-} from '../../components/home/Home.styles';
+  IconWrapper
+} from './Home.styles';
 
 const creativeIdeas = [
   {
@@ -94,6 +96,58 @@ const creativeIdeas = [
   }
 ];
 
+const FloatingCircles = () => (
+  <>
+    <FloatingCircle
+      size={300}
+      top={20}
+      left={10}
+      animate={{
+        y: [0, 50, 0],
+        rotate: [0, 180, 360],
+      }}
+      transition={{
+        duration: 20,
+        repeat: Infinity,
+        ease: "linear"
+      }}
+    />
+    <FloatingCircle
+      size={200}
+      top={60}
+      right={15}
+      animate={{
+        y: [0, -30, 0],
+        rotate: [360, 180, 0],
+      }}
+      transition={{
+        duration: 15,
+        repeat: Infinity,
+        ease: "linear"
+      }}
+    />
+    <FloatingCircle
+      size={250}
+      bottom={20}
+      left={20}
+      animate={{
+        y: [0, 40, 0],
+        rotate: [180, 360, 180],
+      }}
+      transition={{
+        duration: 18,
+        repeat: Infinity,
+        ease: "linear"
+      }}
+    />
+    <TechCircle size={400} top={30} left={30} delay={0} />
+    <TechCircle size={300} top={50} right={20} delay={0.5} />
+    <TechCircle size={350} bottom={30} left={40} delay={1} />
+    <TechCircle size={250} top={70} left={60} delay={1.5} />
+    <TechCircle size={200} bottom={40} right={30} delay={2} />
+  </>
+);
+
 const CreativeInspiration = () => {
   const [currentIdea, setCurrentIdea] = React.useState(creativeIdeas[0]);
   const [isAnimating, setIsAnimating] = React.useState(false);
@@ -113,13 +167,14 @@ const CreativeInspiration = () => {
 
   return (
     <CreativeGenerator>
+      <FloatingCircles />
       <Container maxWidth="lg">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <IdeaTitle variant="h3" component="h2" sx={{ 
+          <Typography variant="h3" component="h2" sx={{ 
             display: 'flex', 
             alignItems: 'center', 
             justifyContent: 'center',
@@ -137,33 +192,33 @@ const CreativeInspiration = () => {
                 duration: 3,
                 repeat: Infinity,
                 ease: "easeInOut"
-        }}
-      >
+              }}
+            >
               <LightbulbIcon sx={{ 
                 fontSize: '2.5rem', 
                 color: '#FF6B9B',
                 filter: 'drop-shadow(0 0 8px rgba(255, 107, 155, 0.5))'
               }} />
             </motion.div>
-          </IdeaTitle>
+          </Typography>
         </motion.div>
       
-      <AnimatePresence mode="wait">
-        {!isAnimating && (
-          <IdeaCard
-            key={currentIdea.title}
-            initial={{ opacity: 0, y: 20, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -20, scale: 0.95 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            colors={currentIdea.colors}
-          >
+        <AnimatePresence mode="wait">
+          {!isAnimating && (
+            <IdeaCard
+              key={currentIdea.title}
+              initial={{ opacity: 0, y: 20, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -20, scale: 0.95 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              colors={currentIdea.colors}
+            >
               <motion.div
                 initial={{ scale: 0.9 }}
                 animate={{ scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
-              <IdeaImage src={currentIdea.image} alt={currentIdea.title} />
+                <IdeaImage src={currentIdea.image} alt={currentIdea.title} />
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -180,12 +235,12 @@ const CreativeInspiration = () => {
                 transition={{ duration: 0.5, delay: 0.4 }}
               >
                 <IdeaDescription>
-                {currentIdea.description}
+                  {currentIdea.description}
                 </IdeaDescription>
               </motion.div>
-          </IdeaCard>
-        )}
-      </AnimatePresence>
+            </IdeaCard>
+          )}
+        </AnimatePresence>
       </Container>
     </CreativeGenerator>
   );
@@ -222,78 +277,7 @@ const Home = () => {
   return (
     <Box>
       <HeroSection>
-        <FloatingCircle
-          size={300}
-          top={20}
-          left={10}
-          animate={{
-            y: [0, 50, 0],
-            rotate: [0, 180, 360],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-        />
-        <FloatingCircle
-          size={200}
-          top={60}
-          right={15}
-          animate={{
-            y: [0, -30, 0],
-            rotate: [360, 180, 0],
-          }}
-          transition={{
-            duration: 15,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-        />
-        <FloatingCircle
-          size={250}
-          bottom={20}
-          left={20}
-          animate={{
-            y: [0, 40, 0],
-            rotate: [180, 360, 180],
-          }}
-          transition={{
-            duration: 18,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-        />
-        <TechCircle
-          size={400}
-          top={30}
-          left={30}
-          delay={0}
-        />
-        <TechCircle
-          size={300}
-          top={50}
-          right={20}
-          delay={0.5}
-        />
-        <TechCircle
-          size={350}
-          bottom={30}
-          left={40}
-          delay={1}
-        />
-        <TechCircle
-          size={250}
-          top={70}
-          left={60}
-          delay={1.5}
-        />
-        <TechCircle
-          size={200}
-          bottom={40}
-          right={30}
-          delay={2}
-        />
+        <FloatingCircles />
         <HeroContent>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -361,6 +345,7 @@ const Home = () => {
       </HeroSection>
 
       <FeatureSection>
+        <FloatingCircles />
         <Container maxWidth="lg">
           <Typography
             variant="h2"
@@ -376,16 +361,16 @@ const Home = () => {
           >
             למה לבחור בנו?
           </Typography>
-        <Grid container spacing={4} justifyContent="center">
-          {features.map((feature, index) => (
-            <Grid item xs={12} sm={6} md={3} key={index}>
+          <Grid container spacing={4} justifyContent="center">
+            {features.map((feature, index) => (
+              <Grid item xs={12} sm={6} md={3} key={index}>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
                 >
-              <FeatureCard>
+                  <FeatureCard>
                     <CardContent sx={{ textAlign: 'center', p: 3, display: 'flex', flexDirection: 'column', height: '100%' }}>
                       <Box
                         className="feature-icon"
@@ -402,17 +387,17 @@ const Home = () => {
                         {feature.icon}
                       </Box>
                       <Typography variant="h6" component="h3" gutterBottom sx={{ fontWeight: 600, minHeight: '48px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  {feature.title}
-                </Typography>
-                <Typography variant="body2" color="text.secondary" sx={{ flexGrow: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  {feature.description}
-                </Typography>
+                        {feature.title}
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary" sx={{ flexGrow: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        {feature.description}
+                      </Typography>
                     </CardContent>
-              </FeatureCard>
+                  </FeatureCard>
                 </motion.div>
-            </Grid>
-          ))}
-        </Grid>
+              </Grid>
+            ))}
+          </Grid>
         </Container>
       </FeatureSection>
 

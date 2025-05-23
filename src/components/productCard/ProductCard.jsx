@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Box, Typography, Rating, IconButton } from '@mui/material';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
@@ -12,7 +13,14 @@ import {
   SelectButton,
 } from './ProductCard.styles.jsx';
 
-const ProductCard = ({ product, onSelect, onAddToCart, onToggleFavorite, isFavorite }) => {
+const ProductCard = ({ product, onAddToCart, onToggleFavorite, isFavorite }) => {
+  const navigate = useNavigate();
+
+  const handleSelectProduct = (e) => {
+    e.stopPropagation();
+    navigate(`/product/${product.id}`);
+  };
+
   return (
     <StyledCard>
       <ProductImage
@@ -34,31 +42,26 @@ const ProductCard = ({ product, onSelect, onAddToCart, onToggleFavorite, isFavor
             ({product.reviews})
           </Typography>
         </Box>
-        <Box sx={{ mt: 'auto' }}>
-          <ProductPrice>
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
+          <ProductPrice variant="h6">
             ₪{product.price}
           </ProductPrice>
-          <Box sx={{ display: 'flex', gap: 1, mt: 2 }}>
-            <SelectButton
-              variant="contained"
-              fullWidth
-              onClick={() => onSelect(product)}
-            >
-              בחר מוצר
-            </SelectButton>
-            <IconButton 
-              onClick={() => onToggleFavorite(product)}
-              sx={{ 
-                color: isFavorite ? 'primary.main' : 'text.secondary',
-                '&:hover': {
-                  color: 'primary.main',
-                }
-              }}
-            >
-              {isFavorite ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+          <Box>
+            <IconButton onClick={(e) => {
+              e.stopPropagation();
+              onToggleFavorite();
+            }} size="small">
+              {isFavorite ? <FavoriteIcon color="primary" /> : <FavoriteBorderIcon />}
             </IconButton>
           </Box>
         </Box>
+        <SelectButton
+          variant="contained"
+          onClick={handleSelectProduct}
+          fullWidth
+        >
+          בחר מוצר
+        </SelectButton>
       </StyledCardContent>
     </StyledCard>
   );

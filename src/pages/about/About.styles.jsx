@@ -9,29 +9,7 @@ export const AboutContainer = styled(Container)(({ theme }) => ({
   padding: theme.spacing(8, 0),
   position: 'relative',
   overflow: 'hidden',
-  background: 'linear-gradient(135deg, rgba(108, 99, 255, 0.9) 0%, rgba(255, 107, 107, 0.9) 100%)',
-  '&::before': {
-    content: '""',
-    position: 'absolute',
-    width: '200%',
-    height: '200%',
-    background: 'radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%)',
-    animation: 'pulse 8s infinite',
-  },
-  '@keyframes pulse': {
-    '0%': {
-      transform: 'scale(1) rotate(0deg)',
-      opacity: 0.5,
-    },
-    '50%': {
-      transform: 'scale(1.2) rotate(180deg)',
-      opacity: 0.3,
-    },
-    '100%': {
-      transform: 'scale(1) rotate(360deg)',
-      opacity: 0.5,
-    },
-  },
+  background: 'transparent',
 }));
 
 export const AboutCard = styled(MotionPaper)(({ theme }) => ({
@@ -73,7 +51,6 @@ export const TitleBox = styled(MotionBox)(({ theme }) => ({
   marginBottom: theme.spacing(4),
   '& h2': {
     fontWeight: 700,
-    color: 'white',
-    textShadow: '2px 2px 4px rgba(0,0,0,0.2)',
+    color: 'text.primary',
   },
 })); 

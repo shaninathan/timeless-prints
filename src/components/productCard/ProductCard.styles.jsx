@@ -3,31 +3,33 @@ import { Card, CardContent, CardMedia, Typography, Button } from '@mui/material'
 
 export const StyledCard = styled(Card)(({ theme }) => ({
   height: '100%',
+  width: '100%',
   display: 'flex',
   flexDirection: 'column',
-  borderRadius: '8px',
+  borderRadius: '12px',
   backgroundColor: 'rgba(255, 255, 255, 0.98)',
-  boxShadow: '0 1px 8px rgba(0,0,0,0.03)',
+  boxShadow: '0 2px 12px rgba(0,0,0,0.04)',
   backdropFilter: 'blur(4px)',
   transition: 'all 0.2s ease-in-out',
   border: '1px solid rgba(108, 99, 255, 0.08)',
   '&:hover': {
-    transform: 'translateY(-2px)',
-    boxShadow: '0 4px 12px rgba(108, 99, 255, 0.08)',
-    border: '1px solid rgba(108, 99, 255, 0.15)',
+    transform: 'translateY(-4px)',
+    boxShadow: '0 8px 24px rgba(108, 99, 255, 0.12)',
+    border: '1px solid rgba(108, 99, 255, 0.2)',
   },
 }));
 
 export const ProductImage = styled(CardMedia)({
-  height: '160px',
-  objectFit: 'cover',
+  height: '180px',
+  objectFit: 'contain',
   backgroundSize: 'contain',
   backgroundPosition: 'center',
   backgroundColor: '#fafafa',
-  borderRadius: '6px 6px 0 0',
-  transition: 'transform 0.2s ease-in-out',
+  borderRadius: '12px 12px 0 0',
+  transition: 'transform 0.3s ease-in-out',
+  padding: '8px',
   '&:hover': {
-    transform: 'scale(1.01)',
+    transform: 'scale(1.03)',
   }
 });
 
@@ -35,30 +37,30 @@ export const StyledCardContent = styled(CardContent)(({ theme }) => ({
   flexGrow: 1,
   display: 'flex',
   flexDirection: 'column',
-  padding: theme.spacing(1.5),
+  padding: theme.spacing(2),
   '&:last-child': {
-    paddingBottom: theme.spacing(1.5),
+    paddingBottom: theme.spacing(2),
   },
 }));
 
 export const ProductName = styled(Typography)(({ theme }) => ({
-  fontSize: '0.95rem',
+  fontSize: '1.1rem',
   fontWeight: 600,
-  marginBottom: theme.spacing(0.5),
+  marginBottom: theme.spacing(1),
   color: theme.palette.text.primary,
   letterSpacing: '0.1px',
-  lineHeight: 1.3,
+  lineHeight: 1.4,
 }));
 
 export const ProductDescription = styled(Typography)(({ theme }) => ({
-  fontSize: '0.8rem',
+  fontSize: '0.9rem',
   color: theme.palette.text.secondary,
-  marginBottom: theme.spacing(1),
+  marginBottom: theme.spacing(1.5),
   display: '-webkit-box',
   WebkitLineClamp: 2,
   WebkitBoxOrient: 'vertical',
   overflow: 'hidden',
-  lineHeight: 1.4,
+  lineHeight: 1.5,
   opacity: 0.85,
 }));
 
